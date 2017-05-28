@@ -1,14 +1,14 @@
 import React from 'react';
 
+import FormulaSuggestions from './formula_suggestions';
+
 class FormulaEditor extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
       formula: '',
-      keyword: '',
-      context: '',
-      field: ''
+      suggestions: []
     }
 
     this.handleChange = this.handleChange.bind(this);
@@ -48,9 +48,10 @@ class FormulaEditor extends React.Component {
 
     let context = this.getContext(event.target.value, event.target.value.slice(0, event.selectionStart).length)
     let suggestions = this.getChoices(context);
-    
+
     this.setState({ 
       formula: event.target.value,
+      suggestions
     });
   }
 
@@ -71,6 +72,9 @@ class FormulaEditor extends React.Component {
           <input type="submit" 
                 value="Submit" 
                 className='formula-submit'/>
+        </div>
+        <div className='formula-suggestions'>
+          <FormulaSuggestions suggestions={ this.state.suggestions } />
         </div>
       </form>
     )
