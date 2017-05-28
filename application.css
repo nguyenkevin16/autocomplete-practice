@@ -10,7 +10,7 @@ table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, embed, 
 figure, figcaption, footer, header, hgroup, 
 menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
+time, mark, audio, video, input {
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -40,4 +40,58 @@ q:before, q:after {
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
+}
+
+input {
+	outline: none;
+}
+
+h1, h2, h3, h4, h5, h6,
+input, p, ol, ul {
+	font-family: 'Roboto', sans-serif;
+}
+
+#root, body, html {
+	height: 100%;
+	width: 100%;
+}
+
+.formula {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.formula-editor {
+	position: absolute;
+	bottom: 20%;
+	height: 100%;
+	width: 100%;
+	flex-direction: column;
+}
+
+.formula-editor > h1 {
+	margin: 30px 0;
+	font-size: 40px;
+}
+
+.formula-input {
+	width: 60%;
+	height: 45px;
+
+	border-radius: 1px;
+	box-shadow: 0 4px 4px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
+  transition: box-shadow 200ms cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+.formula-field {
+	width: 75%;
+	height: 100%;
+	padding-left: 15px;
+}
+
+.formula-submit {
+	width: 25%;
+	height: 100%;
+	border-left: 1px solid rgba(0,0,0,0.04);
 }

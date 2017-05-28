@@ -61,12 +61,17 @@ class FormulaEditor extends React.Component {
 
   render() {
     return(
-      <form onSubmit={ this.handleSubmit }>
+      <form className='formula formula-editor' onSubmit={ this.handleSubmit }>
         <h1>Formula Editor</h1>
-        <input type='text' 
-              onChange={ this.handleChange } 
-              value={ this.state.formula } />
-        <input type="submit" value="Submit" />
+        <div className='formula formula-input'>
+          <input type='text'
+                className='formula-field' 
+                onChange={ this.handleChange } 
+                value={ this.state.formula } />
+          <input type="submit" 
+                value="Submit" 
+                className='formula-submit'/>
+        </div>
       </form>
     )
   }
