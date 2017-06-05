@@ -1,7 +1,5 @@
 import React from 'react';
 
-import FormulaSuggestions from './formula_suggestions';
-
 class FormulaEditor extends React.Component {
   constructor(props) {
     super(props);
@@ -64,17 +62,21 @@ class FormulaEditor extends React.Component {
     return(
       <form className='formula formula-editor' onSubmit={ this.handleSubmit }>
         <h1>Formula Editor</h1>
-        <div className='formula formula-input'>
-          <input type='text'
-                className='formula-field' 
-                onChange={ this.handleChange } 
-                value={ this.state.formula } />
-          <input type="submit" 
-                value="Submit" 
-                className='formula-submit'/>
-        </div>
-        <div className='formula-suggestions'>
-          <FormulaSuggestions suggestions={ this.state.suggestions } />
+        <div className='formula-text'>
+          <div className='formula formula-input'>
+            <input type='text'
+                  className='formula-field' 
+                  onChange={ this.handleChange } 
+                  value={ this.state.formula } />
+            <input type="submit" 
+                  value="Submit" 
+                  className='formula-submit'/>
+          </div>
+            <ul className='formula-suggestions'> 
+              { 
+                this.state.suggestions.map((el) => <li key={el}> { el } </li> )
+              } 
+            </ul>
         </div>
       </form>
     )
